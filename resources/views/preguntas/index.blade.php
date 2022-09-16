@@ -17,7 +17,26 @@
                     <div class="card-header">Preguntas</div>
                 <div class="card-body">
                 <button type="button" class="btn btn-success" onclick="$('#PublicarPregunta').modal('show');" >Agregar Compra</button>
-                
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripcion</th>
+                                <th>Codigo</th>
+                                <th>Etiquetas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($preguntas as $pregunta)
+                            <tr>
+                                <td>{{ $pregunta->titulo }}</td>
+                                <td>{{ $pregunta->descripcion }}</td>
+                                <td>{{ $pregunta->codigo }}</td>
+                                <td>{{ $pregunta->etiquetas }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

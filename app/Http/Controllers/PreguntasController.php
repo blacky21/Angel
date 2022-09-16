@@ -14,7 +14,7 @@ class PreguntasController extends Controller
      */
     public function index()
     {
-        $preguntas=pregunta::paginate(5);
+        $preguntas=pregunta::all();
         return view('preguntas/index', compact('preguntas'));
     }
 
