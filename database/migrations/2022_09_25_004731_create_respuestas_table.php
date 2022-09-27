@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('preguntas', function (Blueprint $table) {
+        Schema::create('respuestas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->string('descripcion');
             $table->string('codigo');
-            $table->string('etiquetas');
+            $table->string('user_name');
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('pregunta_id')->references('id')->on('preguntas');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preguntas');
+        Schema::dropIfExists('respuestas');
     }
 };

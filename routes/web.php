@@ -23,3 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/preguntas','App\Http\Controllers\PreguntasController@index');
 
 Route::resource('preguntas', App\Http\Controllers\PreguntasController::class);
+
+Route::get('/respuestas','App\Http\Controllers\RespuestasController@index');
+
+Route::resource('respuestas', App\Http\Controllers\RespuestasController::class);
