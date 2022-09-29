@@ -22,6 +22,13 @@ class PreguntasController extends Controller
         $preguntas=pregunta::all();
         return view('preguntas/index', compact('preguntas'));
     }
+    public function mispreguntas()
+    {
+        $user_id = Auth::user()->id;
+        $preguntas= pregunta::where('user_id', $user_id)->get();
+        //$preguntas=pregunta::all();
+        return view('preguntas/mispreguntas', compact('preguntas'));
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -5,8 +5,14 @@
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 
 <div class="container">
+<br>
     <div class="row">
-        <div class="col-md-10">
+        <div class="col">
+            <h3>Pregunta no.{{ $pregunta->id }}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="card">
@@ -22,21 +28,33 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
         </div>
-        <button type="button" class="btn btn-success" onclick="$('#PublicarRespuesta').modal('show');" >Publicar respuesta</button>
     </div>
-        @foreach($respuestas as $respuesta)
-            <div class="card">
-                <div class="card-header">
-                    {{ $respuesta->titulo }}
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $respuesta->descripcion }}</h6>
-                    <p class="card-text">{{ $respuesta->codigo }}</p>
-                    <footer class="blockquote-footer">Publicada por <cite title="Source Title">{{ $respuesta->user_name }}</cite></footer>
-                </div>
+    <div class="row ">
+        <div class="col-md-11" >
+            <div class="row justify-content-center">
+                @foreach($respuestas as $respuesta)
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-header">
+                                {{ $respuesta->titulo }}
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $respuesta->descripcion }}</h6>
+                                <p class="card-text">{{ $respuesta->codigo }}</p>
+                                <footer class="blockquote-footer">Publicada por <cite title="Source Title">{{ $respuesta->user_name }}</cite></footer>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                @endforeach 
             </div>
-        @endforeach
+        </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-success" onclick="$('#PublicarRespuesta').modal('show');" >Publicar respuesta</button>
     </div>
 </div>
 <div id="PublicarRespuesta" class="modal fade" tabindex="-1">
